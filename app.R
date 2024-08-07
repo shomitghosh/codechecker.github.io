@@ -27,6 +27,7 @@ server <- function(input, output) {
   processedData <- eventReactive(input$process, {
     withProgress(message = 'Processing data', value = 0, {
       progress <- 0
+      setProgress(value = progress)
     yardi_tenancy <- readxl::read_excel(input$yardiInput$datapath, sheet = "TenancySchedule")
     yardi_vacancy <- readxl::read_excel(input$yardiInput$datapath, sheet = "Vacancy")
       progress <- progress + 0.1
